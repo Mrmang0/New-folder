@@ -102,7 +102,7 @@ class P_Cirle {
             items = items.filter((x) => x != ellipse);
             this.width += ellipse.width / 2;
             this.height += ellipse.height / 2;
-            this.force *= this.force * 0.9;
+            this.force *= 0.95;
           }
         }
 
@@ -120,16 +120,18 @@ class P_Cirle {
             this.width += ellipse.width * 0.1;
             ellipse.width = ellipse.width * 0.9;
             ellipse.height = ellipse.height * 0.9;
-            ellipse.force += 0.35;
+            ellipse.force *= 1.2;
           } else if (
-            in_radius(this, ellipse, this.width * 3) &&
+            in_radius(this, ellipse, this.width * 2) &&
             this.width - ellipse.width > 30
           ) {
-            ellipse.force += 0.1;
+            ellipse.force *= 1.1;
           } else {
-            if(this.width > 50){
-              this.width *= 0.90
-              this.height *= 0.90
+            if (this.width > 50) {
+              this.width *= 0.9;
+              this.height *= 0.9;
+              ellipse.width *= 1.01;
+              ellipse.height *= 1.01;
             }
             x += (diffX * this.force) / 10;
             y += (diffY * this.force) / 10;
@@ -193,6 +195,40 @@ setInterval(() => {
       )
     );
   else if (time > 50000) {
+    items.push(
+      new P_Cirle(
+        100 + Math.random() * 800,
+        100 + Math.random() * 800,
+        1 + r_radius,
+        1 + r_radius,
+        Math.random() - 0.5 > 0 ? 1 : -1,
+        Math.random() - 0.5 > 0 ? 1 : -1,
+        "#232475ff"
+      )
+    );
+    items.push(
+      new P_Cirle(
+        100 + Math.random() * 800,
+        100 + Math.random() * 800,
+        1 + r_radius,
+        1 + r_radius,
+        Math.random() - 0.5 > 0 ? 1 : -1,
+        Math.random() - 0.5 > 0 ? 1 : -1,
+        "#232475ff"
+      )
+    );
+  } else if (time > 75000) {
+    items.push(
+      new P_Cirle(
+        100 + Math.random() * 800,
+        100 + Math.random() * 800,
+        1 + r_radius,
+        1 + r_radius,
+        Math.random() - 0.5 > 0 ? 1 : -1,
+        Math.random() - 0.5 > 0 ? 1 : -1,
+        "#232475ff"
+      )
+    );
     items.push(
       new P_Cirle(
         100 + Math.random() * 800,
