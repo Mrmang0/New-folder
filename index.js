@@ -127,7 +127,7 @@ class P_Cirle {
           ) {
             ellipse.force *= 1.1;
           } else {
-            if (this.width > 50) {
+            if (this.width > 25) {
               this.width *= 0.9;
               this.height *= 0.9;
               ellipse.width *= 1.01;
